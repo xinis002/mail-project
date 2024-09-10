@@ -1,0 +1,13 @@
+{% extends 'mailings/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>{% if object %}Редактировать сообщение{% else %}Добавить сообщение{% endif %}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary mt-3">Сохранить</button>
+        <a href="{% url 'mailings:message_list' %}" class="btn btn-secondary mt-3">Отмена</a>
+    </form>
+</div>
+{% endblock %}

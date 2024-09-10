@@ -1,0 +1,14 @@
+{% extends 'mailings/base.html' %}
+
+{% block content %}
+<h1>Посты в блоге</h1>
+<a href="{% url 'blog:blogpost_create' %}" class="btn btn-primary">Создать новый пост</a>
+<ul>
+    {% for post in posts %}
+        <li>
+            <h2><a href="{% url 'blog:blogpost_detail' post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.publication_date }} | Просмотры: {{ post.views }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

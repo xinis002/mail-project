@@ -1,0 +1,33 @@
+{% extends 'mailings/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Список рассылок</h2>
+    <a href="{% url 'mailings:mailing_create' %}" class="btn btn-primary mb-3">Создать рассылку</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Дата первой отправки</th>
+                <th>Периодичность</th>
+                <th>Статус</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mailing in object_list %}
+            <tr>
+                <td>{{ mailing.id }}</td>
+                <td>{{ mailing.start_datetime }}</td>
+                <td>{{ mailing.get_frequency_display }}</td>
+                <td>{{ mailing.get_status_display }}</td>
+                <td>
+                    <a href="{% url 'mailings:mailing_update' mailing.pk %}" class="btn btn-warning btn-sm">Редактировать</a>
+                    <a href="{% url 'mailings:mailing_delete' mailing.pk %}" class="btn btn-danger btn-sm">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

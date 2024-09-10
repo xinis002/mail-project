@@ -1,0 +1,52 @@
+{% extends 'mailings/base.html' %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Добро пожаловать в FlowStream</h2>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">{{ total_mailings }}</h3>
+                    <p class="card-text">Всего рассылок</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">{{ active_mailings }}</h3>
+                    <p class="card-text">Активных рассылок</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">{{ unique_clients }}</h3>
+                    <p class="card-text">Уникальных клиентов</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="mt-5">Последние статьи блога</h3>
+    <div class="row">
+        {% for post in random_posts %}
+            <div class="col-md-4">
+                <div class="card">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content|truncatewords:15 }}</p>
+                        <a href="{% url 'blog:blogpost_detail' post.pk %}" class="btn btn-primary">Читать далее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
