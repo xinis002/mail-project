@@ -1,25 +1,45 @@
-# 📩 Mail Project
+# 📧 Mail Project
 Mail Project is a web-based application designed to manage and send email campaigns. Built using Python and Django, it provides functionalities for user authentication, creating and managing mailing lists, and composing and sending emails.​
 
-## Features
-> - User Authentication: Secure user registration and login system.​
+## 🚀 Features
+> - User registration, authentication, and email verification
+> 
+> - Create and manage clients (recipients)
 >
-> - Mailing Lists Management: Create, edit, and delete mailing lists to organize contacts.​
+> - Write messages and set up recurring mailings (daily, weekly, monthly)
 >
-> - Email Composition: Compose emails with rich text formatting.​
+> - Admin interface for full control
 >
-> - Campaign Tracking: Monitor the status and performance of email campaigns.​
+> - Monitor the status and performance of email campaigns.​
 
-## Project Structure
->The project is organized into the following main directories:
+## 🧰 Tech Stack
+> - Backend:
+>   - Python 3.11
+>   - Django
+>   - Django Rest Framework
 >
->blog: Handles the blog-related functionalities.​
+> - Database: 
+>   - PostgreSQL
 >
->config: Contains configuration files for the project.​
+> - Scheduling & Tasks:
+>    - Celery
 >
->mailings: Manages the email-related operations, including templates and sending mechanisms.​
->
->users: Manages user authentication and profile management.​
+> - Tools:
+>   - Docker
+>   - Redis
+
+## 📁 Project Structure
+```bash
+mail-project/
+├── blog/            # Blog app for promoting the service
+├── config/          # Project configuration
+├── mailings/        # Mailing logic (messages, clients, schedules)
+├── users/           # Custom user model & authentication
+├── templates/       # HTML templates
+├── static/          # Static assets
+├── manage.py        # Django project manager
+└── requirements.txt # Project dependencies
+```
 
 ## Installation
 ### 💻 Local Development
@@ -66,11 +86,18 @@ python manage.py runserver
 
 The application will be accessible at ```http://127.0.0.1:8000/```
 
-## Contributing
+## 🤝 Contributing
 > Contributions are welcome! 
 > Please fork the repository and submit a pull request with your changes.
+> 1. Fork the repository
+> 2. Create a new branch ```git checkout -b feature-name```
+> 3. Commit your changes
+> 4. Push to your fork
+> 5. Open a pull request
 
 
+## 📝 License
+This project is open-source and available under the MIT License.
 
 
 
